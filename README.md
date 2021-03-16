@@ -28,3 +28,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+#  MomentJs
+   Run `npm install moment --save` to install. Trabalhar com Data/Hora.
+
+# Geoapify
+    Run `npm i @geoapify/geocoder-autocomplete` to install Geoapify Geocoder Autocomplete is a JavaScript(TypeScript) library that provides autocomplete functionality for the Geoapify Geocoding API.
