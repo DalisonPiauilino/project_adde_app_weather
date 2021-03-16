@@ -139,7 +139,7 @@
  }
 
  .card-weather .weather-date-location {
-     padding: 0 0 38px
+     padding: 0px;
  }
 
  .h3,

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './components/weather/weather.component';
-import { WeatherService } from './services/weather.service';
+import { WeatherService } from './components/weather/services/weather.service';
 import { SelectCityComponent } from './components/select-city/select-city.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

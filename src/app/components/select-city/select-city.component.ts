@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { AppService, Weather, WeatherItens } from 'src/app/app.service';
-import { WeatherService } from 'src/app/services/weather.service';
+import { WeatherService } from 'src/app/components/weather/services/weather.service';
 import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 
 @Component({

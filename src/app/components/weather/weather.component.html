@@ -32,21 +32,24 @@
                 <div class="card card-weather">
                     <div class="card-body">
                         <div class="weather-date-location">
-                            <h3>Friday</h3>
-                            <p class="text-gray"> <span class="weather-date">25 March, 2019</span> <span
-                                    class="weather-location">{{_appService.weathers['city']}}</span> </p>
+                            <h1>{{_appService.weathers['city']}}</h1>
+                            <p class="text-gray"> <span class="weather-date">
+                                {{_appService.weathers.list[0].weekday}}
+                            </span> <span
+                                    class="weather-location">{{_appService.weathers.list[0].date}}</span> </p>
                         </div>
                         <div class="weather-data d-flex">
                             <div class="mr-auto">
-                                <h4 class="display-3">32 <span class="symbol">°</span>C</h4>
-                                <p> Cloudy </p>
+                                <img [src]=_appService.weathers.list[0].icon alt="" />
+                                <h2 class="display-3">{{_appService.weathers.list[0].temp}} <span class="symbol">°</span>C</h2>
                             </div>
                         </div>
                     </div>
                     <div class="card-body p-0">
                         <div class="d-flex weakly-weather" style="display: flex;">
-                            <div class="weakly-weather-item" *ngFor="let item of _appService.weathers.list">
-                                <p class="mb-0"> {{item.weekday}} </p>
+                            <div class="weakly-weather-item" *ngFor="let item of _appService.weathers.list| slice:1; let i = index">
+                                <p class="mb-0"> {{i+1}} {{item.weekday}} </p>
+                                <p class="mb-0"> {{item.date}} </p>
                                 <img [src]="item.icon" alt="" />
                                 <p class="mb-0"> {{item.temp}} °C </p>
                             </div>

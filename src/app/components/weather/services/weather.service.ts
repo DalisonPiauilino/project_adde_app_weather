@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { AppService, Weather, WeatherItens } from '../app.service';
+import { AppService, Weather, WeatherItens } from '../../../app.service';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -41,24 +42,17 @@ export class WeatherService {
   mountData(data: any){
     this.weather_forecast.city = data.city['name'];
     this.weather_forecast.list = [];
+    const format = 'hh:mm:ss'
     const dataAtual = new Date();
-    const horaAtual = dataAtual.getHours();
-    const ultimas3Hs = (horaAtual > 3) ? (horaAtual - 3) : 0;
-    console.log(ultimas3Hs);
-
-    let new_data: Array<object> = [];
-
-    for (const i of data['list']) {
-      if (montar lista com ultima atualizacao de tempo) {
-        new_data.push(i)        
-      }
-    }
-
+    const horaAtual = moment(dataAtual).format(format);
+    const ultimas3Hs = moment(dataAtual).subtract(2, 'h').format(format);
+    const beforeTime = moment(ultimas3Hs, format);
+    const afterTime = moment(horaAtual, format);
+    
     for (const item of data['list']) {
+      const d = moment(item.dt_txt).format(format);
       const itemDate = new Date(item.dt_txt);
-      const itemHs = itemDate.getHours();
-      console.log(itemHs);
-      if (itemHs >= ultimas3Hs) {
+      if (moment(d, format).isBetween(beforeTime, afterTime)) {
         let itemList: WeatherItens = new WeatherItens();
         itemList.description = item.weather[0].description;
         itemList.icon = this.getIconUrl(item.weather[0].icon);
@@ -72,6 +66,7 @@ export class WeatherService {
       }
     }
     this._appService.Weathers.emit(this.weather_forecast);
+    console.log(this._appService.weathers);
   }
 
   getDiaExtenso(dia) {
