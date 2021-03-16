@@ -33,4 +33,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
    Run `npm install moment --save` to install. Trabalhar com Data/Hora.
 
 # Geoapify
-    Run `npm i @geoapify/geocoder-autocomplete` to install Geoapify Geocoder Autocomplete is a JavaScript(TypeScript) library that provides autocomplete functionality for the Geoapify Geocoding API.
+  Run `npm i @geoapify/geocoder-autocomplete` to install Geoapify Geocoder Autocomplete is a JavaScript(TypeScript) library that provides autocomplete functionality for the Geoapify Geocoding API.
